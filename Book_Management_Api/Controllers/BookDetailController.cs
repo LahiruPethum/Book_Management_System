@@ -81,7 +81,7 @@ namespace Book_Management_Api.Models
             _context.BookDetails.Add(bookDetail);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBookDetail", new { id = bookDetail.BookId }, bookDetail);
+            return CreatedAtAction("PostBookDetail", new { id = bookDetail.BookId }, bookDetail);
         }
 
         // DELETE: api/PaymentDetail/5
