@@ -1,1 +1,32 @@
-<p>book-details works!</p>
+<div class="text-white bg-opacity-25 headline" >
+    <h1 class="display-4 text-center">Book Details</h1>
+</div> 
+<div class="row wrapper">
+    <div class="col-md-6">
+    <app-book-details-form></app-book-details-form>
+</div>
+<div class="col-md-6">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Book Name</th>
+                <th>Serial Number</th>
+                <th>Date</th>
+                <th>Author</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bd of service.list">
+                <td (click)="populateForm(bd)">{{bd.bookName}}</td>
+                <td (click)="populateForm(bd)">{{bd.serialNo}}</td>
+                <td (click)="populateForm(bd)">{{bd.date}}</td>
+                <td (click)="populateForm(bd)">{{bd.author}}</td>
+                <td>
+                    <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(bd.bookId)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

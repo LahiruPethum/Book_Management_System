@@ -1,1 +1,35 @@
-<p>book-details-form works!</p>
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+<div class="container-fluid " >
+    <input type = "hidden" name="bookId"
+    [value]="service.formData.bookId"/>
+    <div class="form-group">
+            <label>Book Name</label>
+            <input type = "text" class="form-control form-control-lg" placeholder = "Name" name="bookName"
+            #bookName="ngModel" [(ngModel)]="service.formData.bookName" required [class.invalid]="bookName.invalid && bookName.touched"/>
+    </div>   
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Serial Number</label>
+            <input type = "text" class="form-control form-control-lg" placeholder = "Serial No.(16 digits)" name="serialNo"
+            #serialNo="ngModel" [(ngModel)]="service.formData.serialNo" required maxlength="16" minlength="16" [class.invalid]="serialNo.invalid && serialNo.touched"/>
+        </div>  
+    
+        <div class="form-group col-md-3">
+            <label>Date</label>
+            <input type = "text" class="form-control form-control-lg" placeholder = "MM/YY" name="date"
+            #date="ngModel" [(ngModel)]="service.formData.date" required required maxlength="5" minlength="5" [class.invalid]="date.invalid && date.touched"/>
+        </div> 
+
+    </div>   
+
+<div class="form-group ">
+    <label>Author</label>
+    <input type = "text" class="form-control form-control-lg" placeholder = "Author" name="author"
+    #author="ngModel" [(ngModel)]="service.formData.author" required [class.invalid]="author.invalid && author.touched"/>
+</div>  
+
+</div>
+<div class="form-group ">
+    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">Submit</button>
+</div>
+</form>
